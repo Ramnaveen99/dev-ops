@@ -37,6 +37,16 @@ spec:
               value: catalog_user
             - name: MYSQL_PASSWORD
               value: kalyandb101
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: catalog-db
+                  key: RETAIL_CATALOG_PERSISTENCE_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: catalog-db
+                  key: RETAIL_CATALOG_PERSISTENCE_PASSWORD 
           ports:
             - name: mysql
               containerPort: 3306
